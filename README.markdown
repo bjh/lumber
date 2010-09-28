@@ -7,6 +7,6 @@ Why does it exist?
 ------------------
 
 1. simple messages
-2. coloured output (using ssoroka-ansi)
-3. to be continued...
+2. coloured output (optional, requires ssoroka-ansi)
+3. to be determined sometime in a future far, far away...
 
