@@ -6,13 +6,14 @@ Gem::Specification.new do |s|
   s.name        = "lumber"
   s.version     = Lumber::VERSION
   s.platform    = Gem::Platform::RUBY
-  s.authors     = ["TODO: Write your name"]
-  s.email       = ["TODO: Write your email address"]
+  s.authors     = ["bjh"]
+  s.email       = ["bjh@nowhere.com"]
   s.homepage    = ""
-  s.summary     = %q{TODO: Write a gem summary}
-  s.description = %q{TODO: Write a gem description}
+  s.summary     = %q{a logger in A minor}
+  s.description = %q{what is this that stands before me?}
 
   s.rubyforge_project = "lumber"
+  s.add_dependency 'ssoroka-ansi'
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")

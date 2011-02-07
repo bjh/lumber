@@ -4,9 +4,10 @@ begin
   require 'ansi'
   $ansi_included = true
 rescue LoadError => error
-  puts "need to run 'gem install ssoroka-ansi' to get colored log output"
+  puts "run 'gem install ssoroka-ansi' to get colored log output"
   $ansi_included = false
 end
+
 
 # small wrapper around Ruby's Logger class
 # to get colored output and simple messages
