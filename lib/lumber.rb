@@ -1,10 +1,7 @@
-puts "PATH: #{$:}"
 
 require 'logger'
 require 'ansi'
 require 'lumber/colored_output'
-
-
 
 # small wrapper around Ruby's Logger class
 module Lumber  
