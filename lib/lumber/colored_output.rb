@@ -21,23 +21,19 @@ module Lumber
     end
 
     def _error(message)
-      color = CONFIG[:error]
-      _format(ANSI.color(color[:color], :bold => color[:bold]) { "#{message}" })
+      color(:error, message)
     end
 
     def _info(message)
-      color = CONFIG[:info]
-      _format(ANSI.color(color[:color], :bold => color[:bold]) { "#{message}" })
+      color(:info, message)
     end
 
     def _warn(message)
-      color = CONFIG[:warn]
-      _format(ANSI.color(color[:color], :bold => color[:bold]) { "#{message}" })
+      color(:warn, message)
     end
 
     def _debug(message)
-      color = CONFIG[:debug]
-      _format(ANSI.color(color[:color], :bold => color[:bold]) { "#{message}" })
+      color(:debug, message)
     end
 
     def colon
@@ -46,6 +42,11 @@ module Lumber
 
     def border(size=1)
       "-" * size
-    end  
+    end
+
+    def color(level, message)
+      color = CONFIG[level.to_sym]
+      _format(ANSI.color(color[:color], :bold => color[:bold]) { "#{message}" })
+    end
   end
 end
