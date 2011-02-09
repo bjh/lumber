@@ -1,6 +1,7 @@
 
 require 'logger'
 require 'ansi'
+require 'lumber/config'
 require 'lumber/colored_output'
 
 # small wrapper around Ruby's Logger class
@@ -9,7 +10,7 @@ module Lumber
   @logger = Logger.new($stdout)
   @logger.datetime_format = "%H:%M "
   
-  @logger.formatter = Lumber::ColoredOutput.new
+  @logger.formatter = Lumber::ColoredOutput.new(Config.new)
 
   def self.date_time_format(format)
     @logger.datetime_format = format
