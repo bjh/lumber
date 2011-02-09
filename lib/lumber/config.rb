@@ -22,8 +22,6 @@ module Lumber
       else
         @colors = make_defaults()
       end
-
-      puts @colors.inspect
     end
 
     def parse_config(file)
