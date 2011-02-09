@@ -1,17 +1,19 @@
 
 module Lumber
   # handles coloring Logger output if available
-  class ColoredOutput < Logger::Formatter    
-    # intercept calls to Logger
+  class ColoredOutput < Logger::Formatter
     def call(severity, time, program_name, message)
-      severity = "_#{severity.downcase}".to_sym      
+      severity = "_#{severity.downcase}".to_sym
+      
       begin
         self.send(severity, message)
       rescue
         super
       end
-    end    
-  private  
+    end
+    
+  private
+
     def _format(message)
       msg = colon() + message      
       #[border(), msg, border()].join("\n") + "\n"
@@ -19,19 +21,23 @@ module Lumber
     end
 
     def _error(message)
-      _format(ANSI.color(:red, :bold => true) { "#{message}" })
+      color = CONFIG[:error]
+      _format(ANSI.color(color[:color], :bold => color[:bold]) { "#{message}" })
     end
 
     def _info(message)
-      _format(ANSI.color(:yellow, :bold => true) { "#{message}" })
+      color = CONFIG[:info]
+      _format(ANSI.color(color[:color], :bold => color[:bold]) { "#{message}" })
     end
 
     def _warn(message)
-      _format(ANSI.color(:magenta, :bold => true) { "#{message}" })
+      color = CONFIG[:warn]
+      _format(ANSI.color(color[:color], :bold => color[:bold]) { "#{message}" })
     end
 
     def _debug(message)
-      _format(ANSI.color(:cyan, :bold => true) { "#{message}" })
+      color = CONFIG[:debug]
+      _format(ANSI.color(color[:color], :bold => color[:bold]) { "#{message}" })
     end
 
     def colon
