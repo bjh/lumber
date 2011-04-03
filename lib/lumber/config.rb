@@ -18,7 +18,7 @@ module Lumber
       # look for project .lumber file
       if File.exists?('.lumber')
         puts "FOUND LOCAL .lumber FILE"
-        file = './lumber'
+        file = '.lumber'
       else
         # look for ~/lumber as a backup
         puts "FOUND GLOBAL .lumber file"
