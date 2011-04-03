@@ -18,7 +18,7 @@ module Lumber
       if @@logger.respond_to?(method)
         @@logger.send(method, *args)
       else
-        @@logger.warn "method_missing - logger does not respond to #{method}"
+        @@logger.warn "Lumber::method_missing - does not respond to #{method}"
       end
     end
   end

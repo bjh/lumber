@@ -12,10 +12,17 @@ module Lumber
       @colors[color.to_sym]
     end
     
-    private
+  private
 
     def read_config_file
-      file = "#{ENV['HOME']}/.lumber"
+      # look for project .lumber file
+      if File.exists?('.lumber')
+        puts "FOUND LOCAL .lumber FILE"
+        file = './lumber'
+      else
+      # look for ~/lumber as a backup
+        file = "#{ENV['HOME']}/.lumber"
+      end
       
       if File.exists? file
         parse_config(file)
