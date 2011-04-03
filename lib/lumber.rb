@@ -27,7 +27,11 @@ module Lumber
 
   class << self
     def method_missing(method, *args, &block)
-      puts "#{method}, #{args}"
+      if @logger.respond_to?(method)
+        @logger.send(method, *args)
+      else
+        @logger.warn "method_missing - logger does not respond to #{method}"
+      end
     end
   end
 
