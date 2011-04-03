@@ -24,11 +24,12 @@ module Lumber
         puts "FOUND GLOBAL .lumber file"
         file = "#{ENV['HOME']}/.lumber"
       end
+
+      # setup deafult colors
+      @colors = make_defaults()
       
       if File.exists? file
         parse_config(file)
-      else
-        @colors = make_defaults()
       end
     end
 
@@ -42,6 +43,7 @@ module Lumber
     def parse_line(line)
       parts = line.split(',').collect {|x| x.downcase.strip}
 
+      # override defaults
       @colors[parts[0].to_sym] = {
         :color => parts[1].to_sym,
         :bold => parts.size > 2 && parts[2] == 'bold'
