@@ -19,7 +19,7 @@ module Lumber
   
   class << self
     methods.each do |method|
-      define_method(method) do |*args|
+      self.define_method(method) do |*args|
         @logger.send(method, *args)
       end
     end
