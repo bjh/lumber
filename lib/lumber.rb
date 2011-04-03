@@ -25,8 +25,10 @@ module Lumber
   #   end
   # end
 
-  def method_missing(method, *args, &block)
-    puts "#{method}, #{args}"
+  class << self
+    def method_missing(method, *args, &block)
+      puts "#{method}, #{args}"
+    end
   end
 
   # def self.date_time_format(format)
