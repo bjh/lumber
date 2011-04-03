@@ -14,15 +14,19 @@ module Lumber
   @logger.formatter = Lumber::ColoredOutput.new
 
   # attach methods now instead of using method_missing
-  methods = %w{datetime_format level error info warn debug}
+  # methods = %w{datetime_format level error info warn debug}
 
   
-  class << self
-    methods.each do |method|
-      self.define_method(method) do |*args|
-        @logger.send(method, *args)
-      end
-    end
+  # class << self
+  #   methods.each do |method|p
+  #     define_method(method) do |*args|
+  #       @logger.send(method, *args)
+  #     end
+  #   end
+  # end
+
+  def method_missing(method, *args, &block)
+    puts "#{method}, #{args}"
   end
 
   # def self.date_time_format(format)
