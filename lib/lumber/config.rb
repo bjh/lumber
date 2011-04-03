@@ -20,7 +20,8 @@ module Lumber
         puts "FOUND LOCAL .lumber FILE"
         file = './lumber'
       else
-      # look for ~/lumber as a backup
+        # look for ~/lumber as a backup
+        puts "FOUND GLOBAL .lumber file"
         file = "#{ENV['HOME']}/.lumber"
       end
       
