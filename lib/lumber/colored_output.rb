@@ -1,6 +1,6 @@
 
 module Lumber
-  # handles coloring Logger output if available
+  # handles coloring Logger output
   class ColoredOutput < Logger::Formatter
     def call(severity, time, program_name, message)
       severity = "_#{severity.downcase}".to_sym
