@@ -16,12 +16,10 @@ module Lumber
 
     def read_config_file
       # look for project .lumber file
-      if File.exists?('.lumber')
-        puts "FOUND LOCAL .lumber FILE"
-        file = '.lumber'
+      file = if File.exists?('.lumber')
+        '.lumber'
       else
-        # look for ~/lumber as a backup
-        file = "#{ENV['HOME']}/.lumber"
+        "#{ENV['HOME']}/.lumber"
       end
 
       # setup deafult colors
